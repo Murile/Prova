@@ -12,5 +12,5 @@ server.use(endepoints);
 
 
 
-server.listen(process.env.PORT,
-    () => console.log(`API online na porta ${process.env.PORT}`));
+server.listen(process.env.PORT, 
+    () => console.log(`API oline na porta ${process.env.PORT}`));

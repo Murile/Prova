@@ -1,6 +1,7 @@
 import { Router } from 'express';
+
 const server = Router();
-import { dobro,somar,media,temperatura,tabuada,corprimaria,ingressoCinema } from './funcoes.js'
+import { dobro,somar,media,temperatura,tabuada,corprimaria,ingressoCinema,maiornumero,Caracter } from './funcoes.js'
 
 server.get('/dobro/:numero', (req, resp) => {
     
@@ -111,6 +112,22 @@ server.post('/dia2/ingressocinema',(req,resp) =>{
 
     resp.send({
         ingressoCinema : x 
+    })
+})
+server.get('/dia2/freqcaracter/:texto/:caracter',(req,resp) =>{
+    const { texto,caracter } = req.query;
+    const x = Caracter(texto,caracter);
+
+    resp.send({
+        freqcaracter : x
+    })
+})
+server.post('/dia2/maiornumero',(req,resp) => {
+    const numero = req.query;
+    const x = maiornumero(numero);
+
+    resp.send({
+        maiornumero: x
     })
 })
 

@@ -21,10 +21,10 @@ function temperatura(temp){
     return a;
 }
 function tabuada(n){
-    let a = [];
+    let a = [n];
 
-for (let i = 0; i < n; i++) {
-    const [i] = a[i];
+for (let i = 0; i <= 10; i++) {
+    a[i] = [i] * n;
     
 }
 return a;
@@ -54,7 +54,7 @@ function ingressoCinema(qtdinteira,qtdMeia,dia,pais){
 }
 
 function maiornumero(n){
-    let maior= 0;
+    let maior= Number.MIN_VALUE;
     for(item in n) {
         if(item>maior){
             maior= item;
@@ -62,4 +62,13 @@ function maiornumero(n){
     }
     return maior;
 }
-export { dobro,somar,media,temperatura,tabuada,corprimaria,ingressoCinema,maiornumero }
+
+function Caracter(texto, Caracter){
+    let quant=0;
+    for(let letra of palavra){
+        if(letra == Caracter)
+            quant++;
+    }
+    return quant;
+}
+export { dobro,somar,media,temperatura,tabuada,corprimaria,ingressoCinema,maiornumero,Caracter }
