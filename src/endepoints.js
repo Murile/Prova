@@ -21,7 +21,6 @@ server.get('/dobro/:numero', (req, resp) => {
         })
     }
 
-
 })
 
 server.get ('/somar', (req, resp) => {
@@ -94,9 +93,9 @@ server.get('/temperatura', (req,resp) => {
     })    
 
 })
-server.get('/dia2/corprimaria/q',(req,resp) =>{
-    const a = req.query.a;
-    const x = corprimaria(a);
+server.get('/dia2/corprimaria/:cor',(req,resp) =>{
+    const { cor } = req.params;
+    const x = corprimaria(cor);
     
     resp.send({
         corprimaria: x
@@ -104,30 +103,30 @@ server.get('/dia2/corprimaria/q',(req,resp) =>{
 })
 
 server.post('/dia2/ingressocinema',(req,resp) =>{
-    const qtdinteira = req.body.qtdinteira;
-    const  qtdMeia  = req.body.qtdMeia;
-    const  dia  = req.body.dia;
-    const  pais  = req.body.pais;
-    const x = ingressoCinema(qtdinteira,qtdMeia,dia,pais);
+    const { qtdInteira,qtdMeia,diaSemana, nacionalidade } = req.body;
+ 
+    const total = ingressoCinema(qtdInteira,qtdMeia,diaSemana, nacionalidade);
 
     resp.send({
-        ingressoCinema : x 
+        total : total 
     })
 })
+
 server.get('/dia2/freqcaracter/:texto/:caracter',(req,resp) =>{
-    const { texto,caracter } = req.query;
+    const { texto,caracter } = req.params;
     const x = Caracter(texto,caracter);
 
     resp.send({
         freqcaracter : x
     })
 })
+
 server.post('/dia2/maiornumero',(req,resp) => {
-    const numero = req.query;
-    const x = maiornumero(numero);
+    const  numero  = req.body;
+    const maior = maiornumero(numero);
 
     resp.send({
-        maiornumero: x
+        maior: maior
     })
 })
 

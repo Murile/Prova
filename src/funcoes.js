@@ -31,41 +31,31 @@ return a;
 }
 
 function corprimaria(cor){
-     let a = cor === 'vermelho' || cor === 'azul' || cor === 'amarelo';
-     return a;
+     cor = cor.toLowerCase();
+     return cor === 'vermelho' || cor === 'azul' || cor === 'amarelo';
 }
 
-function ingressoCinema(qtdinteira,qtdMeia,dia,pais){
-    let total = 0;
-
-    if(pais == 'brasileiro'){
-        total = (qtdMeia + qtdinteira) * 5;
-    
-    }
-    else{
-        if(dia=='quarta'){
-            total = (qtdMeia + qtdinteira) * (28.5/2);
-        }
-        else{
-             total = (qtdinteira * 28.5)+(qtdMeia*28.5/2);
-        }
-    }
-    return total;
+function ingressoCinema(qtdinteira,qtdMeia,diaSemana,nacionalidade){
+if(nacionalidade.toLowerCase()==='brasileiro')
+    return (qtdinteira+qtdMeia)*5;
+else if(diaSemana.toLowerCase()==='quarta')
+    return (qtdinteira+qtdMeia)*14.25;
+else
+    return (qtdinteira*28.5)+(qtdMeia*14.25);    
 }
 
-function maiornumero(n){
+function maiornumero(numeros){
     let maior= Number.MIN_VALUE;
-    for(item in n) {
-        if(item>maior){
-            maior= item;
-        }
+    for(let item of numeros) {
+        if(item > maior)
+            maior = item;
     }
     return maior;
 }
 
 function Caracter(texto, Caracter){
     let quant=0;
-    for(let letra of palavra){
+    for(let letra of texto){
         if(letra == Caracter)
             quant++;
     }
